@@ -3,12 +3,11 @@ import json
 import requests
 #from time import sleep
 
-ser = serial.Serial('/dev/ttyS0', 9600)
-
 #def setup():
     
 #, timeout=5,parity=serial.PARITY_ODD
 def readData():
+    ser = serial.Serial('/dev/ttyS0', 9600)
     buffer = ""
     while True:
         oneByte = ser.read(1)
@@ -16,6 +15,8 @@ def readData():
             return buffer
         else:
             buffer += oneByte.decode("ascii")
+    ser.close()
+    return buffer
 
 def send_to_server():
     ind = 0
@@ -43,10 +44,6 @@ def scan():
     barcode = readData()
     return barcode
 
-
-
-def cleanup():
-    ser.close()
 
 def __init__():
     return True
