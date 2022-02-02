@@ -22,9 +22,9 @@ while True:
     #print(barcode_dict)
     #with open("barcodes.json", "a") as outfile:
     #    json.dump(barcode_dict, outfile)
-    
-    r = requests.post('https://httpbin.org/post', json=barcode_dict, verify=False)
-    print(f"Status Code: {r.status_code}, Response: {r.json()}")
+    print(barcode_dict)
+    r = requests.post('http://10.192.32.116:4321/barcode', json=barcode_dict, verify=False)
+    #print(f"Status Code: {r.status_code}, Response: {r.json()}")
     #r = requests.get('http
     #recieved_data = ser.read()
     

@@ -21,7 +21,27 @@ def run():
         #print('Reading data')
         #print(recieved_data)
         #ser.write(recieved_data)
-
+def send_to_server():
+    ind = 0
+    while True:
+        barcode = readData()
+        ind += 1
+        barcode_dict = dict({ind:barcode})
+        #print(barcode_dict)
+        #with open("barcodes.json", "a") as outfile:
+        #    json.dump(barcode_dict, outfile)
+        
+        r = requests.post('https://httpbin.org/post', json=barcode_dict, verify=False)
+        print(f"Status Code: {r.status_code}, Response: {r.json()}")
+        #r = requests.get('http
+        #recieved_data = ser.read()
+        
+        #sleep(0.03)
+        #data_left = ser.inWaiting()
+        #recieved_data = ser.read(data_left)
+        #print('Reading data')
+        #print(recieved_data)
+        #ser.write(recieved_data)
 # always looking to scan
 #
 if __name__ == "__main__":

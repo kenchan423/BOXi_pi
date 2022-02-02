@@ -11,7 +11,7 @@ import open_sesame
 
 #waveshare.setup()
 tracking_number = waveshare.scan()
-waveshare.cleanup()
+#waveshare.cleanup()
 
 print(tracking_number)
 time.sleep(0.5)

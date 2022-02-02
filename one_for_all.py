@@ -1,8 +1,21 @@
+# change import lines later
+import scan_barcode as waveshare
+import open_sesame
+import 
+
+# reading in barcodes
+tracking_number = waveshare.readData()
+print(tracking_number)
+
+# trip relay & open lock
+open_sesame.trip()
+
+"""
 import RPi.GPIO as GPIO
 import time
 
 # Disable warnings
-GPIO.setwarnings(False)
+GPIO.setwarnings(False)  
 
 # RELAY & LOCK
 # Set up GPIO pins for relay & lock
@@ -44,6 +57,7 @@ from weight_sensor.weigh import job
     time.sleep(3)
     trip()
 
+"""
 
 
 
